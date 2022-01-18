@@ -36,6 +36,10 @@ function App() {
         <section className="App-name-bottom">
           <button onClick={refresh}>Fetch me a new name, yarrrr!</button>
         </section>
+
+        <footer>
+            The priate name generator was created by Norman Steger - <a href="mailto:me@normansteger.com">me@normansteger.com</a> - <a href="https://github.com/voodoods/pirate-name-generator" target="_blank" rel="noreferrer">View on GitHub</a>
+        </footer>
         </div>
       </div>
     </div>
