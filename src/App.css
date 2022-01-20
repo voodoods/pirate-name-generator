@@ -110,7 +110,7 @@ body, html, #root {
   font-size: 2em;
   font-weight: normal;
   border-radius: 5px;
-  margin: 4rem auto 6rem auto;
+  margin: 4rem 1rem 6rem 1rem;
   box-shadow: 0px 0px 5px #000;
   transition: 0.2s box-shadow ease-in-out,
               0.2s border-color ease-in-out;
@@ -119,6 +119,12 @@ body, html, #root {
 .App-name-bottom button:hover {
   border-color: #d3a681;
   box-shadow: 0px 10px 20px #000;
+}
+
+
+.App-name-bottom button.button-randomize {
+  background: #3A2E63;
+  border-color: #6148B0;
 }
 
 .App-wrapper footer {
@@ -137,4 +143,15 @@ body, html, #root {
 .App-wrapper footer, 
 .App-wrapper footer a {
   color: white;
+}
+
+.App-custom-name {
+  font-family: 'Caveat', cursive;
+  width: 15vw;
+  padding: 18px 25px;
+  font-size: 2em;
+  border-radius: 5px;
+  outline: none;
+  border: 4px solid #af8159;
+  margin: 0 1rem;
 }

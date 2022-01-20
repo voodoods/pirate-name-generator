@@ -1,13 +1,30 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import {ReactComponent as PirateLogo} from './assets/logo.svg';
 import './App.css';
-import { generatePirateName, generatePirateSlur, generatePirateTitle } from './generate';
+import { generateCustomPirateName, generatePirateName, generatePirateSlur, generatePirateTitle } from './generate';
 
 function App() {
+  const customNameRef = useRef<any>(null);
+  const [customName, setCustomName] = useState("");
+
+  const getCustomName = () => {
+    if(!customNameRef?.current?.value) {
+      return alert("Ya need to enter a name, you filthy shark fodder!")
+    }
+    const newName = generateCustomPirateName(customNameRef?.current?.value);
+
+    setCustomName(newName);
+  }
+
+  const renderCustomName = () => {
+    const randomName = generatePirateName();
+    return {__html: customName || randomName};
+  }
 
   const refresh = () => {
     window.location.href = "/"
   }
+
   return (
     <div className="App" style={{ 
       backgroundImage: `url(${process.env.PUBLIC_URL + '/img/background.jpg'})`,
@@ -28,13 +45,17 @@ function App() {
           <div>
             <span className="generated-slur">{generatePirateSlur()}</span><br/>
             <span className="generated-title">{generatePirateTitle()}</span><br/>
-            <span className="generated-name">{generatePirateName()}</span><br/>
+            <span className="generated-name" dangerouslySetInnerHTML={renderCustomName()}></span><br/>
           </div>
 
         </section>
 
         <section className="App-name-bottom">
-          <button onClick={refresh}>Fetch me a new name, yarrrr!</button>
+   
+          <input className="App-custom-name" type="text" ref={customNameRef} placeholder="What's your name?" />
+          <button className="button-customize" onClick={getCustomName}>Call me by me own name!</button>
+          <button className="button-randomize" onClick={refresh}>Fetch me a random name!</button>
+
         </section>
 
         <footer>

@@ -41,3 +41,7 @@ export function generatePirateTitle() {
 export function generatePirateSlur() {
     return generate(slurs);
 }
+
+export function generateCustomPirateName(name: string): string {
+    return generateName([name], firstNameEndings) + ' ' + generateName(lastNameFronts, lastNameEndings);
+}
